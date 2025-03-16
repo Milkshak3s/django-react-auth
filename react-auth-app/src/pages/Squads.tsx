@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 
 function Squads() {
-    const squad = useSWR<SquadResponse>(`/api/squad/1/`, fetcher);
+    const squad = useSWR<SquadResponse>(`/api/squad/2/`, fetcher);
 
     return (
         <div>

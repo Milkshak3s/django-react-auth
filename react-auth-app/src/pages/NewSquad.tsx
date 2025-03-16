@@ -51,14 +51,15 @@ function NewSquad() {
     });
 
     return (
-        <div>
-            <div>
-                <h1>
+        <div className="h-screen flex bg-gray-bg1">
+            <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
+                <h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
                     Create a squad
                 </h1>
                 <form onSubmit={formik.handleSubmit}>
-                    <div>
+                    <div className="space-y-4">
                     <input
+                      className="border-b border-gray-300 w-full px-2 h-8 rounded focus:border-blue-500"
                       id="name"
                       type="name"
                       placeholder="Name"
@@ -69,6 +70,7 @@ function NewSquad() {
                      />
                      {formik.errors.name ? <div>{formik.errors.name} </div> : null}
                      <input
+                      className="border-b border-gray-300 w-full px-2 h-8 rounded focus:border-blue-500"
                       id="description"
                       type="description"
                       placeholder="Description"
@@ -79,6 +81,7 @@ function NewSquad() {
                      />
                      {formik.errors.description ? <div>{formik.errors.description} </div> : null}
                      <input
+                      className="border-b border-gray-300 w-full px-2 h-8 rounded focus:border-blue-500"
                       id="formup"
                       type="formup"
                       placeholder="Formup"
@@ -88,11 +91,11 @@ function NewSquad() {
                       onBlur={formik.handleBlur}
                      />
                      {formik.errors.formup ? <div>{formik.errors.formup} </div> : null}
-                     <div hidden={false}>
+                     <div className="text-danger text-center my-2" hidden={false}>
                         {message}
                      </div>
-                     <div>
-                        <button type="submit" disabled={loading}>
+                     <div className="flex justify-center items-center mt-6">
+                        <button type="submit" disabled={loading} className="rounded border-gray-300 p-2 w-32 bg-blue-700 text-white">
                             Create
                         </button>
                      </div>

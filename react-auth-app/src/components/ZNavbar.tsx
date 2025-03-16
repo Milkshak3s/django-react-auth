@@ -10,7 +10,12 @@ import Nav from 'react-bootstrap/Nav';
 
 function NavRight({ username }: { username: string | undefined }) {
   if (username == null) {
-    return (<Nav.Link href="/login">Login</Nav.Link>);
+    return (
+      <div>
+        <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href="/register">Register</Nav.Link>
+      </div>
+    );
   }
   return (<Navbar.Text>
             Signed in as: <a href="/profile">{username}</a>
