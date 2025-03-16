@@ -5,7 +5,7 @@ on:
     branches: ['main']
 
 env:
-  REGISTRY: ghcr.io/persistentss13
+  REGISTRY: ghcr.io/Milkshak3s
   IMAGE_NAME: squaddie-back
   IMAGE_NAME_REACT: squaddie-front
 
