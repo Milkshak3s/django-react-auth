@@ -59,8 +59,8 @@ function Login() {
       handleLogin(values.email, values.password);
     },
     validationSchema: Yup.object({
-      email: Yup.string().trim().required("Le nom d'utilisateur est requis"),
-      password: Yup.string().trim().required("Le mot de passe est requis"),
+      email: Yup.string().trim().required("A real email address, please."),
+      password: Yup.string().trim().required("Yeah you gotta have a password bud."),
     }),
   });
 

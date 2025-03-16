@@ -6,3 +6,11 @@ export interface UserResponse {
     updated: Date;
     id: string;
 }
+
+export interface SquadResponse {
+    name: string;
+    description: string | undefined;
+    created_at: Date;
+    owner: string;
+    formup: string;
+}

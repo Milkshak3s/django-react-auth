@@ -1,15 +1,11 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {useNavigate, useLocation} from "react-router";
+import {useNavigate} from "react-router";
 import authSlice from "../store/slices/auth";
 import useSWR from 'swr';
 import type {UserResponse} from "../utils/types";
 import {fetcher} from "../utils/axios";
 import {RootState} from "../store";
-
-interface LocationState {
-    userId: string;
-}
 
 
 const Profile = () => {
@@ -19,7 +15,7 @@ const Profile = () => {
 
   const userId = account?.user?.id;
 
-  const user = useSWR<UserResponse>(`/api/user/${userId}/`, fetcher)
+  const user = useSWR<UserResponse>(`/api/user/${userId}/`, fetcher);
 
   const handleLogout = () => {
     dispatch(authSlice.actions.logout());
@@ -32,7 +28,7 @@ const Profile = () => {
           onClick={handleLogout}
           className="rounded p-2 w-32 bg-red-700 text-white"
         >
-          Deconnexion
+          Logout
         </button>
       </div>
         {
