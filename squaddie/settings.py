@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from os import getenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)cw0atrz%-plb_7^kn)8u$a0yo5$(i^g0tzz!xt$gf&kr(_r&r'
+SECRET_KEY = getenv("DJANGO_SECRET_KEY", default='django-insecure-)cw0atrz%-plb_7^kn)8u$a0yo5$(i^g0tzz!xt$gf&kr(_r&r')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = getenv("DJANGO_DEBUG", default=False)
 
 ALLOWED_HOSTS = []
 
@@ -82,6 +82,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'pgsql': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': getenv("DJANGO_DB_NAME", default="NoneName"),
+        'USER': getenv("DJANGO_DB_USER", default="NoneUser"),
+        'PASSWORD': getenv("DJANGO_DB_PASS", default="NonePass"),
+        'HOST': getenv("DJANGO_DB_HOST", default="NoneHost"),
+        'PORT': getenv("DJANGO_DB_PORT", default=''),
     }
 }
 
@@ -120,7 +128,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = getenv("DJANGO_STATIC_URL", default='static/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -140,7 +148,9 @@ REST_FRAMEWORK = {
     )
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000"
-]
+CORS_ALLOWED_ORIGINS = [getenv("DJANGO_CORS_ORIGINS", default="None")]
+if CORS_ALLOWED_ORIGINS[0] == "None":
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000"
+    ]
