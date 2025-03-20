@@ -80,16 +80,16 @@ WSGI_APPLICATION = 'squaddie.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'pgsql': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': getenv("DJANGO_DB_NAME", default="NoneName"),
         'USER': getenv("DJANGO_DB_USER", default="NoneUser"),
         'PASSWORD': getenv("DJANGO_DB_PASS", default="NonePass"),
         'HOST': getenv("DJANGO_DB_HOST", default="NoneHost"),
-        'PORT': getenv("DJANGO_DB_PORT", default=''),
+        'PORT': getenv("DJANGO_DB_PORT", default=5432),
+    },
+    'sqlite': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
