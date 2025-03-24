@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = getenv("DJANGO_SECRET_KEY", default='django-insecure-)cw0atrz%-plb_7^kn)8u$a0yo5$(i^g0tzz!xt$gf&kr(_r&r')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = json.load(getenv("DJANGO_DEBUG", default="False").lower())
+DEBUG = getenv("DJANGO_DEBUG", default="False").lower() == "True"
 
 ALLOWED_HOSTS = [getenv("DJANGO_ALLOWED_HOSTS", default=None)]
 
