@@ -47,4 +47,4 @@ ENV PYTHONUNBUFFERED=1
 USER appuser
  
 # Start the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:80", "--workers", "3", "squaddie.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "squaddie.wsgi:application"]
