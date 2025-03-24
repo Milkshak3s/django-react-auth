@@ -24,8 +24,14 @@ RUN npm run build
 # Use a specific version of the official Nginx image as the base image for the deployable image
 FROM nginxinc/nginx-unprivileged:1.24-bullseye-perl
 
-# Expose the port that the Nginx server will listen on
-EXPOSE 8080
+# Configure error pages
+RUN mkdir -p /srv/http/default && mkdir /etc/nginx/snippets/
+COPY --from=build /usr/src/app/errors /srv/http/default
+RUN ln -s /srv/http/default/snippets/error_pages.conf /etc/nginx/snippets/error_pages.conf && ln -s /srv/http/default/snippets/error_pages_content.conf /etc/nginx/snippets/error_pages_content.conf
 
 # Copy the built artifacts from the build stage to the Nginx HTML directory
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
+COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose the port that the Nginx server will listen on
+EXPOSE 8080
