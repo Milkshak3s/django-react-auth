@@ -8,6 +8,7 @@ env:
   REGISTRY: ghcr.io/Milkshak3s
   IMAGE_NAME: squaddie-back
   IMAGE_NAME_REACT: squaddie-front
+  REACT_APP_API_URL: "https://squaddie.milkshakes.cloud/"
 
 jobs:
   build-and-push-image-dev:
