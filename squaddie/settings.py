@@ -25,7 +25,7 @@ SECRET_KEY = getenv("DJANGO_SECRET_KEY", default='django-insecure-)cw0atrz%-plb_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getenv("DJANGO_DEBUG", default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [getenv("DJANGO_ALLOWED_HOSTS", default=None)]
 
 
 # Application definition
