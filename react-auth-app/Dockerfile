@@ -25,9 +25,9 @@ RUN npm run build
 FROM nginxinc/nginx-unprivileged:1.24-bullseye-perl
 
 # Configure error pages
-RUN mkdir -p /srv/http/default && mkdir /etc/nginx/snippets/
-COPY --from=build /usr/src/app/errors /srv/http/default
-RUN ln -s /srv/http/default/snippets/error_pages.conf /etc/nginx/snippets/error_pages.conf && ln -s /srv/http/default/snippets/error_pages_content.conf /etc/nginx/snippets/error_pages_content.conf
+RUN mkdir -p /etc/nginx/error_pages && mkdir /etc/nginx/snippets/
+COPY --from=build /usr/src/app/errors /etc/nginx/error_pages
+RUN ln -s /etc/nginx/error_pages/snippets/error_pages.conf /etc/nginx/snippets/error_pages.conf && ln -s /etc/nginx/error_pages/snippets/error_pages_content.conf /etc/nginx/snippets/error_pages_content.conf
 
 # Copy the built artifacts from the build stage to the Nginx HTML directory
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
