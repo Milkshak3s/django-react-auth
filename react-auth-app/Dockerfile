@@ -31,7 +31,7 @@ RUN ln -s /etc/nginx/error_pages/snippets/error_pages.conf /etc/nginx/snippets/e
 
 # Copy the built artifacts from the build stage to the Nginx HTML directory
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
-COPY --from=build /usr/src/app/app/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose the port that the Nginx server will listen on
 EXPOSE 8080
