@@ -56,11 +56,10 @@ jobs:
       
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        env:
-          REACT_APP_API_URL: ${{ env.REACT_APP_API_URL }}
         with:
           context: ./react-auth-app
           push: true
-          secret-envs: REACT_APP_API_URL=REACT_APP_API_URL
+          build-args: |
+            "REACT_APP_API_URL=${{ env.REACT_APP_API_URL }}"
           tags: ${{ steps.meta-2.outputs.tags }}
           labels: ${{ steps.meta-2.outputs.labels }}

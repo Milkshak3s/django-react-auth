@@ -1,5 +1,8 @@
 # Stage 1: Base build stage
 FROM python:3.13-slim AS builder
+
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL ${REACT_APP_API_URL}
  
 # Create the app directory
 RUN mkdir /app
