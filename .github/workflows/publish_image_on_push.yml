@@ -61,5 +61,6 @@ jobs:
         with:
           context: ./react-auth-app
           push: true
+          secret-envs: REACT_APP_API_URL=REACT_APP_API_URL
           tags: ${{ steps.meta-2.outputs.tags }}
           labels: ${{ steps.meta-2.outputs.labels }}
