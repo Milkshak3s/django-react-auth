@@ -8,7 +8,7 @@ env:
   REGISTRY: ghcr.io/Milkshak3s
   IMAGE_NAME: squaddie-back
   IMAGE_NAME_REACT: squaddie-front
-  REACT_APP_API_URL: "https://squaddie.milkshakes.cloud/"
+  REACT_APP_API_URL: https://squaddie.milkshakes.cloud/
 
 jobs:
   build-and-push-image-dev:
@@ -56,6 +56,8 @@ jobs:
       
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        env:
+          REACT_APP_API_URL: ${{ env.REACT_APP_API_URL }}
         with:
           context: ./react-auth-app
           push: true
