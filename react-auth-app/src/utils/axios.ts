@@ -2,9 +2,10 @@ import axios from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import store from '../store';
 import authSlice from '../store/slices/auth';
+import apiUrl from './apiurl';
 
 const axiosService = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
+    baseURL: apiUrl(),
     headers: {
         'Content-Type': 'application/json',
     },
