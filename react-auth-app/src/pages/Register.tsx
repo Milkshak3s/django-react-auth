@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import authSlice from "../store/slices/auth";
+import apiUrl from "../utils/apiurl";
 
 
 function Register() {
@@ -15,7 +16,7 @@ function Register() {
 
     const handleRegister = (username: string, email: string, password: string) => {
         axios
-            .post(`${process.env.REACT_APP_API_URL}/api/auth/register/`, { username, email, password })
+            .post(`${apiUrl()}/api/auth/register/`, { username, email, password })
             .then((res) => {
                 dispatch(
                     authSlice.actions.setAuthTokens({

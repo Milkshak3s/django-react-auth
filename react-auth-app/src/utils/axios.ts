@@ -50,7 +50,7 @@ const refreshAuthLogic = async (failedRequest) => {
                     refresh: refreshToken,
                 },
                 {
-                    baseURL: process.env.REACT_APP_API_URL
+                    baseURL: apiUrl()
                 }
             )
             .then((resp) => {
