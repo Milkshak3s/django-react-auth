@@ -2,6 +2,9 @@
 # Use a specific version of the official Node.js image as the build stage
 FROM node:21.5-bullseye AS build
 
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL=${REACT_APP_API_URL}
+
 # Set the working directory inside the container
 WORKDIR /usr/src/app
 
