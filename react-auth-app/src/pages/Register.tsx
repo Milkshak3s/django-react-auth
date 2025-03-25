@@ -16,7 +16,7 @@ function Register() {
 
     const handleRegister = (username: string, email: string, password: string) => {
         axios
-            .post(`${apiUrl()}/api/auth/register/`, { username, email, password })
+            .post(`${apiUrl()}api/auth/register/`, { username, email, password })
             .then((res) => {
                 dispatch(
                     authSlice.actions.setAuthTokens({

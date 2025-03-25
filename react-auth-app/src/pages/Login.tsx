@@ -16,7 +16,7 @@ function Login() {
 
   const handleLogin = (email: string, password: string) => {
     axios
-          .post(`${apiUrl()}/api/auth/login/`, { email, password })
+          .post(`${apiUrl()}api/auth/login/`, { email, password })
           .then((res) => {
             dispatch(
               authSlice.actions.setAuthTokens({
