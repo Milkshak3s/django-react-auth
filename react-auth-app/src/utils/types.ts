@@ -14,3 +14,7 @@ export interface SquadResponse {
     owner: string;
     formup: string;
 }
+
+export interface SquadListResponse {
+    squads: SquadResponse[];
+}

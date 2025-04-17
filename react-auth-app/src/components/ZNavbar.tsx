@@ -30,7 +30,7 @@ function ZNavbar() {
 
   return (
     <div>
-      <Navbar className="bg-body-tertiary">
+      <Navbar className="bg-blue-400">
         <Container>
           <Navbar.Brand href="/">Squaddie</Navbar.Brand>
           <Navbar.Toggle />

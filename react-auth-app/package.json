@@ -35,8 +35,10 @@
     "yup": "^1.6.1"
   },
   "scripts": {
-    "start": "craco start && postcss src/index.css -o public/index.css",
-    "build": "craco build",
+    "build:css": "npx @tailwindcss/cli -i ./src/index.css -o ./public/index.css",
+    "watch:css": "npx @tailwindcss/cli -i ./src/index.css -o ./public/index.css --watch",
+    "start": "concurrently \"yarn run watch:css\" \"craco start\"",
+    "build": "npx @tailwindcss/cli -i ./src/index.css -o ./public/index.css && craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
@@ -57,5 +59,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
