@@ -11,8 +11,8 @@ class SquadViewSet(viewsets.ModelViewSet):
     serializer_class = SquadSerializer
     permission_classes = (IsAuthenticated,IsOwner)
     filter_backends = [filters.OrderingFilter]
-    ordering_fields = ['created']
-    ordering = ['-created']
+    ordering_fields = ['created_at']
+    ordering = ['-created_at']
 
     def get_queryset(self):
         if self.request.user.is_superuser:
@@ -37,8 +37,8 @@ class SquadMemberTileViewSet(viewsets.ModelViewSet):
     serializer_class = SquadMemberTileSerializer
     permission_classes = (IsAuthenticated,)
     filter_backends = [filters.OrderingFilter]
-    ordering_fields = ['created']
-    ordering = ['-created']
+    ordering_fields = ['created_at']
+    ordering = ['-created_at']
 
     def get_queryset(self):
         if self.request.user.is_superuser:

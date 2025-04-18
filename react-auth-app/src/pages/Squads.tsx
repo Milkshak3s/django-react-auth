@@ -11,9 +11,7 @@ function Squads() {
 
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-            <div className="grid gap-16 grid-cols-3 px-16 py-12">
                 <ZSquadListTable squads={squadsRes.data?.squads} />
-            </div>
         </div>
     );
 };
