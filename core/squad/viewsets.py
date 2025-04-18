@@ -17,6 +17,8 @@ class SquadViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.is_superuser:
             return Squad.objects.all()
+        else:
+            return Squad.objects.filter(owner=self.request.user)
 
     def get_object(self):
         lookup_field_value = self.kwargs[self.lookup_field]
