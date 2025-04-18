@@ -14,16 +14,20 @@ export const Default: Story = {
   args: {
     squads: [
       {
-        id: 1,
+        id: "1",
         name: 'Squad Alpha',
         description: 'Alpha squad description',
         formup: '2025-06-31 0600 UTC',
+        created_at: new Date(),
+        owner: 'John Doe',
       },
       {
-        id: 2,
+        id: "2",
         name: 'Squad Bravo',
         description: 'Bravo squad description',
         formup: '2025-06-31 0600 UTC',
+        created_at: new Date(),
+        owner: 'John Doe',
       },
     ]
   }

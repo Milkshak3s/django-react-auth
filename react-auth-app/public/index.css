@@ -6,9 +6,6 @@
 .collapse {
   visibility: collapse;
 }
-.invisible {
-  visibility: hidden;
-}
 .visible {
   visibility: visible;
 }
@@ -149,9 +146,6 @@
 .grow {
   flex-grow: 1;
 }
-.border-collapse {
-  border-collapse: collapse;
-}
 .transform {
   transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
 }
@@ -190,11 +184,6 @@
 }
 .self-center {
   align-self: center;
-}
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .overflow-hidden {
   overflow: hidden;
@@ -286,13 +275,6 @@
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
-}
-.hover\:underline {
-  &:hover {
-    @media (hover: hover) {
-      text-decoration-line: underline;
-    }
-  }
 }
 .focus\:z-10 {
   &:focus {
