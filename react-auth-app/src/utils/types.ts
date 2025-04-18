@@ -13,6 +13,7 @@ export interface SquadResponse {
     created_at: Date;
     owner: string;
     formup: string;
+    id: string;
 }
 
 export interface SquadListResponse {

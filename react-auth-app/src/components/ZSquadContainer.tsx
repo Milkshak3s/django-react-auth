@@ -35,21 +35,6 @@ function ZSquadContainer({ squadId }: { squadId: string | undefined }) {
                 </div>
             </div>
     )
-
-    /**
-    return (
-        <div>
-            <Card onClick={handleClick}>
-                <Card.Body>
-                    <Card.Title>{squad.data?.name}</Card.Title>
-                    <Card.Text>
-                        {squad.data?.description}
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-        </div>
-    )
-     */
 }
 
 

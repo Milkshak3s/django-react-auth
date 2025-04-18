@@ -7,7 +7,7 @@ from core.squad.permissions import IsOwner
 
 
 class SquadViewSet(viewsets.ModelViewSet):
-    http_method_names = ['get', 'post']
+    http_method_names = ['get', 'post', 'patch', 'delete']
     serializer_class = SquadSerializer
     permission_classes = (IsAuthenticated,IsOwner)
     filter_backends = [filters.OrderingFilter]
